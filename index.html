@@ -14,11 +14,15 @@
         min-height: 100vh;
       }
       
-      .content {
-        position: relative;
-        z-index: 2;
+  .center-image {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10; /* So it's above marquee */
+        /* Optionally add more styles like width, box-shadow or pointer cursor */
       }
-
+      
       .marquee-vertical-wrapper {
         position: absolute;
         top: 0;
@@ -55,9 +59,9 @@
   </head>
  <body>
    
-<a href="build.html" target="_blank">
-  <img src="button.png">
-</a>
+<a href="build.html" target="_blank" class="center-image">
+      <img src="button.png" alt="Build Button" />
+    </a>
    
     <div class="marquee-vertical-wrapper">
       <div class="marquee-vertical" id="marquee">
