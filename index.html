@@ -81,7 +81,7 @@
           let offset = -((elapsed / duration) * textHeight);
           marquee.style.transform = `translateY(${offset}px)`;
           // When we've scrolled one block, reset for seamless loop
-          if (elapsed < duration) {
+          if (elapsed <= duration) {
             requestAnimationFrame(step);
           } else {
             marquee.style.transform = `translateY(0px)`;
