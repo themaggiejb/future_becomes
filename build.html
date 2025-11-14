@@ -11,36 +11,23 @@
         padding: 0;
         position: relative;
         min-height: 100vh;
-    }
-.palette {
-<img src="palette.png">
-  position: fixed;
-  left: 5;
-  right: 0;
+   <ul class='circle-container'>
+          <li>img=src<"computer.png"></li>
+          <li>img=src<"doctor.png"></li>
+          <li>img=src<"leaf.png"></li>
+          <li>img=src<"papers.png"></li>
+          <li>img=src<"palette.png"></li>
+    </ul>
+ .image-container {
+  width: 200px;
+  height: 300px;
+  border: 1px solid black;
 }
-.computer {
-    <img src="computer.png">
-    position: fixed;
-  left: 4;
-  right: 1;
-}
-.leaf {
-    <img src="leaf.png">
-    position: fixed;
-  left: 3;
-  right: 2;
-}
-.papers {
-    <img src="papers.png">
-    position: fixed;
-  left: 1;
-  right: 4;
-}
-.doctor {
-    <img src="doctor.png">
-position: fixed;
-  left: 0;
-  right: 5;
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 15% 100%;
 }
       </style>
 <style>
