@@ -14,15 +14,13 @@
         min-height: 100vh;
       }
       
-  .left-image {
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 10; /* So it's above marquee */
-        /* Optionally add more styles like width, box-shadow or pointer cursor */
-      }
-      
+.left-image {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100; /* Make sure it's higher than .marquee-vertical-wrapper and .marquee-vertical */
+}
       .marquee-vertical-wrapper {
         position: absolute;
         top: 0;
