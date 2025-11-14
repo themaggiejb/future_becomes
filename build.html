@@ -1,89 +1,102 @@
 <!DOCTYPE html>
 <html>
-
-    <style>
-      body {
-        background-image: url("Background.png");
-        background-repeat: no-repeat; 
-        background-position: center; 
-        background-size: cover; 
-        background-attachment: fixed;
-        margin: 0;
-        padding: 0;
-        position: relative;
-        min-height: 100vh;
-
-@mixin on-circle($item-count, $circle-size, $item-size) {
-  position: relative;
-  width:  $circle-size;
-  height: $circle-size;
-  padding: 0;
-  border-radius: 50%; 
-  list-style: none;       
-  
-  > * {
-    display: block;
-    position: absolute;
-    top:  50%; 
-    left: 50%;
-    width:  $item-size;
-    height: $item-size;
-    margin: -($item-size / 2);
-  
-    $angle: (360 / $item-count);
-    $rot: 0;
-
-    @for $i from 1 through $item-count {
-      &:nth-of-type(#{$i}) {
-        transform: 
-          rotate($rot * 1deg) 
-          translate($circle-size / 2) 
-          rotate($rot * -1deg);
-      }
-
-      $rot: $rot + $angle;
-    }
-  }
-}
-     <ul class='circle-container'>
-          <li>img=src<"computer.png"></li>
-          <li>img=src<"doctor.png"></li>
-          <li>img=src<"leaf.png"></li>
-          <li>img=src<"papers.png"></li>
-          <li>img=src<"palette.png"></li>
-    </ul>
-  
-          .circle-container {
-              @include on-circle($item-count: 8, $circle-size: 20em, $item-size: 6em); 
-  margin: 5em auto 0;
-
-  
-  img { 
-    display: block; 
-    max-width: 100%; 
-    border-radius: 50%;
-    filter: grayscale(100%);
-    transition: .15s;
-    
-    &:hover,
-    &:active {
-      filter: grayscale(0);
-    }
-  }
-          }
-      </style>
+<head>
 <style>
-    body {
-        font-size: 32px;
-        color: white;
-        font-family: monocraft, sans-serrif, times-new-roman;
-        text-align: left;
-        margin: 50px;
-    }
+  body {
+    background-image: url("Background.png");
+    background-repeat: no-repeat; 
+    background-position: center; 
+    background-size: cover; 
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    min-height: 100vh;
+    font-size: 32px;
+    color: white;
+    font-family: monocraft, sans-serif, times-new-roman;
+  }
+
+  .text-content {
+    text-align: left;
+    margin: 50px;
+  }
+
+  .circle-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .circle-container li {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    margin: -60px;
+  }
+
+  .circle-container a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+  }
+
+  .circle-container a:hover {
+    transform: scale(1.1);
+  }
+
+  .circle-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+  }
+
+  /* Position each item around the circle */
+  .circle-container li:nth-child(1) {
+    transform: rotate(0deg) translate(250px) rotate(0deg);
+  }
+
+  .circle-container li:nth-child(2) {
+    transform: rotate(72deg) translate(250px) rotate(-72deg);
+  }
+
+  .circle-container li:nth-child(3) {
+    transform: rotate(144deg) translate(250px) rotate(-144deg);
+  }
+
+  .circle-container li:nth-child(4) {
+    transform: rotate(216deg) translate(250px) rotate(-216deg);
+  }
+
+  .circle-container li:nth-child(5) {
+    transform: rotate(288deg) translate(250px) rotate(-288deg);
+  }
 </style>
+</head>
+<body>
 
-<p> choose your freedom </p>
+<div class="text-content">
+  <p>choose your freedom</p>
+  <p>wowza</p>
+</div>
 
-<p>wowza</p>
-    
+<ul class="circle-container">
+  <li><a href="artist.html"><img src="palette.png" alt="Artist"></a></li>
+  <li><a href="tech.html"><img src="computer.png" alt="Tech"></a></li>
+  <li><a href="medical.html"><img src="doctor.png" alt="Medical"></a></li>
+  <li><a href="farm.html"><img src="leaf.png" alt="Farm"></a></li>
+  <li><a href="office.html"><img src="papers.png" alt="Office"></a></li>
+</ul>
+
+</body>
 </html>
