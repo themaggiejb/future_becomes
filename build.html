@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html>
+     <ul class='circle-container'>
+          <li>img=src<"computer.png"></li>
+          <li>img=src<"doctor.png"></li>
+          <li>img=src<"leaf.png"></li>
+          <li>img=src<"papers.png"></li>
+          <li>img=src<"palette.png"></li>
+    </ul>
     <style>
       body {
         background-image: url("Background.png");
@@ -12,13 +19,7 @@
         position: relative;
         min-height: 100vh;
           
-   <ul class='circle-container'>
-          <li>img=src<"computer.png"></li>
-          <li>img=src<"doctor.png"></li>
-          <li>img=src<"leaf.png"></li>
-          <li>img=src<"papers.png"></li>
-          <li>img=src<"palette.png"></li>
-    </ul>
+  
           .circle-container {
               @include on-circle($item-count: 8, $circle-size: 20em, $item-size: 6em); 
   margin: 5em auto 0;
