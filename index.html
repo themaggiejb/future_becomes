@@ -61,29 +61,38 @@
         </div>
       </div>
     </div>
-    <script>
-      // Clone the text for seamless looping
+ <script>
+      // Duplicate the marquee text for seamless effect
       const marquee = document.getElementById('marquee');
       const text = document.getElementById('marquee-text');
-      const clone = text.cloneNode(true);
-      marquee.appendChild(clone);
+      const textClone = text.cloneNode(true);
+      marquee.appendChild(textClone);
 
-      function animateMarquee() {
+      function startMarquee() {
         const textHeight = text.offsetHeight;
-        const duration = Math.max(60, textHeight / 10); // e.g. 60s minimum, scales to height so can slow for long texts
-        marquee.style.transition = "none";
-        marquee.style.transform = "translateY(0)";
-        // Force a reflow for restart
-        void marquee.offsetWidth;
-        marquee.style.transition = `transform ${duration}s linear`;
-        marquee.style.transform = `translateY(-${textHeight}px)`;
-        // Reset after animation
-        setTimeout(animateMarquee, duration * 1000);
+        // How long to scroll (seconds) — adjust as desired
+        const duration = Math.max(40, textHeight / 12); // You can tweak 12 for speed
+        let start;
+
+        function step(ts) {
+          if (!start) start = ts;
+          const elapsed = (ts - start) / 1000; // seconds
+          // Calculate scrolling offset
+          let offset = -((elapsed / duration) * textHeight);
+          marquee.style.transform = `translateY(${offset}px)`;
+          // When we've scrolled one block, reset for seamless loop
+          if (elapsed < duration) {
+            requestAnimationFrame(step);
+          } else {
+            marquee.style.transform = `translateY(0px)`;
+            start = null;
+            requestAnimationFrame(step);
+          }
+        }
+        requestAnimationFrame(step);
       }
 
-      animateMarquee();
+      startMarquee();
     </script>
   </body>
-
- 
 </html>
